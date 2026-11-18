@@ -2,8 +2,11 @@
   "name": "app-erp",
   "private": true,
   "type": "module",
+  "homepage": "https://mohammadhusi.github.io/app-erp-react-js",
   "scripts": {
     "build": "react-router build",
+    "predeploy": "npm run build && cp build/client/index.html build/client/404.html",
+    "deploy": "gh-pages -d build/client --dotfiles",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
@@ -22,6 +25,7 @@
     "@types/node": "^22",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vite": "^8.0.3"
