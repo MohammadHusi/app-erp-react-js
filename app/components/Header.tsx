@@ -2,26 +2,35 @@ import React, { useState } from "react";
 import { useErp } from "../context/ErpContext";
 
 export function Header() {
-  const { userRole, setIsAddTransactionModalOpen, setIsProposalModalOpen } = useErp();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { userRole, setIsAddTransactionModalOpen, setIsProposalModalOpen, setIsMobileSidebarOpen } = useErp();
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <header className="fixed top-0 left-[260px] right-0 h-[70px] bg-white/95 backdrop-blur-md border-b border-[#e2e8f0] z-30 flex items-center justify-between px-8 shadow-xs">
-      <div className="flex items-center gap-4">
+    <header className="fixed top-0 left-0 lg:left-[260px] right-0 h-[70px] bg-white/95 backdrop-blur-md border-b border-[#e2e8f0] z-30 flex items-center justify-between px-4 sm:px-6 lg:px-8 shadow-xs">
+      <div className="flex items-center gap-2 sm:gap-4 flex-1 max-w-xl">
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setIsMobileSidebarOpen(true)}
+          className="lg:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors shrink-0"
+          title="Buka Menu"
+          type="button"
+        >
+          <span className="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+
         {/* Search Input with keyboard indicator */}
-        <div className="relative flex items-center w-80 lg:w-96">
-          <span className="material-symbols-outlined absolute left-3.5 text-slate-400 text-[18px]">
+        <div className="relative flex items-center flex-1 max-w-xs sm:max-w-md">
+          <span className="material-symbols-outlined absolute left-3 text-slate-400 text-[18px]">
             search
           </span>
           <input
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-16 py-2 bg-slate-100/80 hover:bg-slate-100 rounded-full text-xs text-slate-800 placeholder:text-slate-400 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all"
-            placeholder="Cari NIM, transaksi, tiket pengadaan... (Ctrl+K)"
+            className="w-full pl-9 pr-4 sm:pr-14 py-2 bg-slate-100/80 hover:bg-slate-100 rounded-full text-xs text-slate-800 placeholder:text-slate-400 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all"
+            placeholder="Cari transaksi, NIM, tiket..."
             type="text"
           />
-          <div className="absolute right-3 px-2 py-0.5 rounded bg-white text-slate-400 text-[10px] font-semibold border border-slate-200 select-none shadow-2xs">
+          <div className="hidden sm:block absolute right-3 px-1.5 py-0.5 rounded bg-white text-slate-400 text-[10px] font-semibold border border-slate-200 select-none shadow-2xs">
             Ctrl K
           </div>
         </div>

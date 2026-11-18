@@ -34,9 +34,9 @@ function MainContent() {
   return (
     <div className="min-h-screen bg-[#f8f9ff]">
       <Sidebar />
-      <div className="pl-[260px]">
+      <div className="pl-0 lg:pl-[260px] transition-all duration-300">
         <Header />
-        <main className="w-full pt-[90px] px-8 pb-16 min-h-screen">
+        <main className="w-full pt-[85px] sm:pt-[90px] px-4 sm:px-6 lg:px-8 pb-16 min-h-screen">
           {activeTab === "dashboard" && <DashboardView />}
           {activeTab === "analisis" && <AnalisisView />}
           {activeTab === "pengadaan" && <PengadaanView />}

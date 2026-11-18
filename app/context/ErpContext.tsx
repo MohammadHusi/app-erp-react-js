@@ -33,6 +33,8 @@ interface ErpContextType {
   setIsAddTransactionModalOpen: (open: boolean) => void;
   isAddInventoryModalOpen: boolean;
   setIsAddInventoryModalOpen: (open: boolean) => void;
+  isMobileSidebarOpen: boolean;
+  setIsMobileSidebarOpen: (open: boolean) => void;
   // Actions
   addTransaction: (tx: Omit<Transaction, "id" | "time" | "categoryColor" | "statusColor">) => void;
   addProposal: (proposal: Omit<ProcurementProposal, "id" | "date" | "statusBadge" | "step">) => void;
@@ -57,6 +59,7 @@ export function ErpProvider({ children }: { children: React.ReactNode }) {
   const [drawerMode, setDrawerMode] = useState<"approval" | "rejection">("approval");
   const [isAddTransactionModalOpen, setIsAddTransactionModalOpen] = useState<boolean>(false);
   const [isAddInventoryModalOpen, setIsAddInventoryModalOpen] = useState<boolean>(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
 
   const addTransaction = (tx: Omit<Transaction, "id" | "time" | "categoryColor" | "statusColor">) => {
     const newTx: Transaction = {
@@ -214,6 +217,8 @@ export function ErpProvider({ children }: { children: React.ReactNode }) {
         setIsAddTransactionModalOpen,
         isAddInventoryModalOpen,
         setIsAddInventoryModalOpen,
+        isMobileSidebarOpen,
+        setIsMobileSidebarOpen,
         addTransaction,
         addProposal,
         approveProposal,

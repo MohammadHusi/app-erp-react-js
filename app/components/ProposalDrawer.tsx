@@ -56,7 +56,7 @@ export function ProposalDrawer() {
       {/* Modern Slide-Over Drawer */}
       <aside
         aria-label="Rincian Tiket Pengadaan"
-        className="fixed top-0 right-0 w-[540px] max-w-full h-full bg-white z-50 shadow-2xl border-l border-[#e2e8f0] flex flex-col overflow-hidden transition-transform duration-300 ease-out"
+        className="fixed top-0 right-0 w-full sm:w-[540px] max-w-full h-full bg-white z-50 shadow-2xl border-l border-[#e2e8f0] flex flex-col overflow-hidden transition-transform duration-300 ease-out"
       >
         {/* Top Utility Bar */}
         <div
